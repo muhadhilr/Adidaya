@@ -4,7 +4,7 @@ import Button from "../components/Button";
 
 const Login = () => {
   return (
-    <div className="bg-purple-bg flex flex-col justify-center h-screen p-10">
+    <div className="bg-purple-bg flex flex-col justify-center h-full p-10">
       <h1 className="text-h1 text-purple font-bold">Masuk</h1>
       <form action="">
         <div>

@@ -1,10 +1,14 @@
-import React from 'react'
-import Register from '../layouts/Register'
+import React from "react";
+import Register from "../layouts/Register";
 
 const RegisterPage = () => {
-  return(
-    <Register />
-  )
-}
+  return (
+    <>
+      <div>
+      <Register />
+      </div>
+    </>
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;
