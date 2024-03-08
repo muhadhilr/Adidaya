@@ -10,6 +10,9 @@ export default {
     },
     fontSize: {
       'h1': '56px'
+    },
+    backgroundImage: {
+      'login-register': "url('./assets/images/loginRegister.jpg')",
     }
   },
   plugins: [],

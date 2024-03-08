@@ -1,10 +1,11 @@
 import React from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="bg-purple-bg flex flex-col justify-center h-full p-10">
+    <div className="bg-purple-bg flex flex-col justify-center h-full p-10 rounded-3xl">
       <h1 className="text-h1 text-purple font-bold">Masuk</h1>
       <form action="">
         <div>
@@ -24,9 +25,9 @@ const Login = () => {
         <div>
           <p>
             Belum Punya Akun?{" "}
-            <a href="" className="font-bold">
+            <Link to="/register" className="font-bold">
               Daftar Disini
-            </a>
+            </Link>
           </p>
         </div>
       </form>

@@ -4,7 +4,7 @@ import Button from "../components/Button";
 
 const Login = () => {
   return (
-    <div className="bg-purple-bg flex flex-col justify-center h-full p-10">
+    <div className="bg-purple-bg flex flex-col justify-center h-full p-10 rounded-3xl">
       <h1 className="text-h1 text-purple font-bold">Daftar</h1>
       <form action="">
         <div className="flex w-full">
@@ -33,7 +33,7 @@ const Login = () => {
         </div>
       </form>
       <div>
-        <p>Ingin Mendaftar Sebagai Mitra? <a href="" className="font-bold">Hubungi Kami</a></p>
+        <p>Ingin Mendaftar Sebagai Mitra? <a href="https://wa.me/+6281234567890?text=Halo!%20Saya%20ingin%20mendaftar%20sebagai%20mitra" className="font-bold">Hubungi Kami</a></p>
       </div>
     </div>
   );
