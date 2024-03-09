@@ -6,6 +6,9 @@ import ErrorPage from "./pages/404.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import TestingPage from "./pages/TestingPage.jsx";
+import ProfilMitraPage from "./pages/ProfilMitraPage.jsx";
+import ProfilInvestorPage from "./pages/ProfilInvestorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/profil-mitra",
+    element: <ProfilMitraPage />,
+  },
+  {
+    path: "/profil-investor",
+    element: <ProfilInvestorPage />,
+  },
+  {
+    path: "/testing",
+    element: <TestingPage />,
   }
 ]);
 
