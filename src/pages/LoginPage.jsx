@@ -1,9 +1,10 @@
 import React from 'react';
 import Login from '../layouts/Login';
+import backgroundImage from '../assets/images/loginRegister.png';
 
 const LoginPage = () => {
   const backgroundStyle = {
-    backgroundImage: `url('/assets/images/loginRegister.png')`,
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     position: 'relative'

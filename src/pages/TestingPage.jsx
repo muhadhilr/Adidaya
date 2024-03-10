@@ -1,10 +1,13 @@
-import React from 'react'
-import ProfilInvestor from '../layouts/ProfilInvestor'
+import React from "react";
+import CardProfit from "../components/CardProfit";
+import CardTotal from "../components/CardTotal";
 
 const TestingPage = () => {
   return (
-    <ProfilInvestor />
-  )
-}
+    <>
+      <CardTotal />
+    </>
+  );
+};
 
-export default TestingPage
+export default TestingPage;
