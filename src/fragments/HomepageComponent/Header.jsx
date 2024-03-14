@@ -1,6 +1,6 @@
 import React from "react";
 import headerImage from "../../assets/images/homepageHeader.svg";
-import Button from "../../components/Button";
+import Button from "../../elements/Button";
 import store from "../../assets/icon/addStore.png";
 import priceTag from "../../assets/icon/priceTag.png";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import CardStep from "../../components/CardStep";
+import CardStep from "../../elements/CardStep";
 
 const StepInvestor = () => {
   const cardData = [

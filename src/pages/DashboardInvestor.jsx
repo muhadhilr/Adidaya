@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CardTotal from "../components/CardTotal";
+import CardTotal from "../elements/CardTotal";
 import { IDRCurrency } from "../utils/Currency";
-import CardProfit from "../components/CardProfit";
+import CardProfit from "../elements/CardProfit";
 
 const DashboardInvestor = () => {
     const [pendanaan, setPendanaan] = useState(16000000);

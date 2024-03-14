@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CardAbout from "../../components/CardAbout";
+import CardAbout from "../../elements/CardAbout";
 import VisiMisi from "../../assets/icon/visimisiImage.png";
 import Keunggulan from "../../assets/icon/keunggulanImage.png";
 import BagiHasil from "../../assets/icon/bagihasilImage.png";
@@ -27,9 +27,7 @@ const About = () => {
   ];
 
   return (
-    <div
-      className="h-screen flex justify-center items-center bg-blue"
-    >
+    <div className="h-screen flex justify-center items-center bg-blue">
       <div className="w-3/4 text-center">
         <div className="mb-5">
           <h1 className="text-sh font-bold">

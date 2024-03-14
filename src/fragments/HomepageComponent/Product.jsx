@@ -1,14 +1,7 @@
 import React from "react";
-import backgroundImage from "../../assets/images/homepageProduct_bg.png";
-import CardHomeProduct from "../../components/CardHomeProduct";
+import CardHomeProduct from "../../elements/CardHomeProduct";
 
 const Product = () => {
-  const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
   return (
     <div
       className="h-screen flex flex-col justify-center items-center"

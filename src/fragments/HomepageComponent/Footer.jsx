@@ -1,6 +1,6 @@
 import React from "react";
 import headerImage from "../../assets/images/homepageFooter.png";
-import Button from "../../components/Button";
+import Button from "../../elements/Button";
 import store from "../../assets/icon/addStore.png";
 import priceTag from "../../assets/icon/priceTag.png";
 
@@ -11,10 +11,8 @@ const Footer = () => {
         <img src={headerImage} alt="" />
       </div>
       <div className="flex-1">
-        <h1
-          className="text-h1 font-bold leading-tight mb-4"
-        >
-          Mari, Perluas Dampak Pendanaan dengan Modalin UMKM 
+        <h1 className="text-h1 font-bold leading-tight mb-4">
+          Mari, Perluas Dampak Pendanaan dengan Modalin UMKM
         </h1>
         <div className="flex mt-12">
           <div className="mr-4">
