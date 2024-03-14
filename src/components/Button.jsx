@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = ({ children, type }) => {
   return (
-    <button className="w-full rounded-3xl p-3 focus:outline-none bg-purple text-white font-bold" type={type}>
+    <button className="rounded-full flex items-center p-4 px-8 text-p2 bg-orange text-white hover:bg-[#E4B68D]" type={type}>
       {children}
     </button>
   );

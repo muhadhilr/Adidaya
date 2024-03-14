@@ -1,10 +1,6 @@
 import React from 'react';
 import walletImage from '../assets/icon/walletIcon.svg';
-
-const IDRCurrency = (nominal) => {
-  const formattedNominal = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(nominal);
-  return formattedNominal.replace(/\,00$/, '');
-};
+import { IDRCurrency } from '../utils/Currency'
 
 const CardTotal = ({ children, description }) => {
   return (
@@ -14,7 +10,7 @@ const CardTotal = ({ children, description }) => {
       </div>
       <div className='text-center text-white m-3 pb-3'>
         <div>
-          <h1 className='text-h3 font-bold'>{IDRCurrency(children)}</h1>
+          <h1 className='text-h3 font-bold'>{IDRCurrency({nominal: children})}</h1>
         </div>
         <div>
           <p className='text-h4 font-light'>{description}</p>

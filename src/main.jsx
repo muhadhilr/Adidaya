@@ -9,11 +9,12 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import TestingPage from "./pages/TestingPage.jsx";
 import ProfilMitraPage from "./pages/ProfilMitraPage.jsx";
 import ProfilInvestorPage from "./pages/ProfilInvestorPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {

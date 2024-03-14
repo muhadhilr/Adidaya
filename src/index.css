@@ -3,20 +3,25 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Gilroy-Bold";
+  font-family: "ExtraBold";
+  src: local("Gilroy-ExtraBold"), url(./fonts/Gilroy-ExtraBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Bold";
   src: local("Gilroy-Bold"), url(./fonts/Gilroy-Bold.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Gilroy-Medium";
+  font-family: "Medium";
   src: local("Gilroy-Medium"), url(./fonts/Gilroy-Medium.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Gilroy-Regular";
+  font-family: "Regular";
   src: local("Gilroy-Regular"), url(./fonts/Gilroy-Regular.ttf) format("truetype");
 }
 
 body {
-  font-family: "Gilroy-Medium", "Gilroy-Regular", "Gilroy-Bold", sans-serif;
+  font-family: "Regular", sans-serif;
 }
