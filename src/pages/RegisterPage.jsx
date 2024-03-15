@@ -39,7 +39,7 @@ const RegisterPage = () => {
         </form>
         <div>
           <p>
-            Ingin Mendaftar Sebagai Mitra?{" "}
+            Ingin Mendaftar Sebagai Mitra?
             <a
               href="https://wa.me/+6281234567890?text=Halo!%20Saya%20ingin%20mendaftar%20sebagai%20mitra"
               className="text-green"
