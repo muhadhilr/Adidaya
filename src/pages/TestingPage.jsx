@@ -1,10 +1,13 @@
 import React from "react";
+import FinanceRecap from "../fragments/ProfilInvestorComponent/FinanceRecap";
+import FormProfil from "../fragments/ProfilInvestorComponent/FormProfil"
 
 
 const TestingPage = () => {
   return (
     <>
-      <Footer />
+      <FormProfil />
+      <FinanceRecap />
     </>
   );
 };

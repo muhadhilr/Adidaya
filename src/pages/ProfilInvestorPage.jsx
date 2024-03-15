@@ -1,18 +1,14 @@
-import React from 'react'
-import ProfilInvestor from '../layouts/ProfilInvestor'
+import React from "react";
+import FinanceRecap from "../fragments/ProfilInvestorComponent/FinanceRecap";
+import FormProfil from "../fragments/ProfilInvestorComponent/FormProfil"
 
 const ProfilInvestorPage = () => {
   return (
-    <div className='h-screen flex flex-col justify-center items-center'>
-      <div className='text-center'>
-        <h1 className='text-h2 font-bold text-purple'>Profil Investor</h1>
-        <p className='text-p1 text-purple-ph'>Harap Lengkapi Data Berikut</p>
-      </div>
-      <div className='mt-5'>
-        <ProfilInvestor />
-      </div>
-    </div>
-  )
-}
+    <>
+      <FormProfil />
+      <FinanceRecap />
+    </>
+  );
+};
 
-export default ProfilInvestorPage
+export default ProfilInvestorPage;

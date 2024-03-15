@@ -5,9 +5,11 @@ export default {
     colors: {
       'green': '#96A50C',
       'green-ph': '#ADABC3',
-      'green-bg': '#EFF1F1',
+      'brown-bg': '#EFE8E1',
       'white': '#ffffff',
-      'orange': '#D47823'
+      'orange': '#D47823',
+      'red': '#B3261E',
+      'black': '#000000',
     },
     fontSize: {
       'h1': '56px',
@@ -23,6 +25,7 @@ export default {
     fontFamily: {
       'bold': ['Bold', 'sans-serif'],
       'extraBold': ['ExtraBold', 'sans-serif'],
+      'semiBold': ['SemiBold', 'sans-serif'],
       'medium': ['Medium', 'sans-serif'],
       'regular': ['Regular', 'sans-serif']
     }
