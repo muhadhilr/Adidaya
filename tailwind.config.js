@@ -10,6 +10,7 @@ export default {
       'orange': '#D47823',
       'red': '#B3261E',
       'black': '#000000',
+      'grey': '#5B5B5B',
     },
     fontSize: {
       'h1': '56px',
