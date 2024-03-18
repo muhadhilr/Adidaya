@@ -10,6 +10,8 @@ import TestingPage from "./pages/TestingPage.jsx";
 import ProfilMitraPage from "./pages/ProfilMitraPage.jsx";
 import ProfilInvestorPage from "./pages/ProfilInvestorPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
+import DetailProductPage from "./pages/DetailProductPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +20,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/login",
+    path: "/masuk",
     element: <LoginPage />,
   },
   {
-    path: "/register",
+    path: "/daftar",
     element: <RegisterPage />,
+  },
+  {
+    path: "/produk",
+    element: <ProductPage />,
+  },
+  {
+    path: "/detail-produk",
+    element: <DetailProductPage />,
   },
   {
     path: "/profil-mitra",
