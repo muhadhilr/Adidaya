@@ -30,3 +30,11 @@
 body {
   font-family: "Regular", sans-serif;
 }
+
+.card-text {
+  color: grey; /* Warna teks default */
+}
+
+.card-text:hover {
+  color: white; /* Warna teks saat dihover */
+}
