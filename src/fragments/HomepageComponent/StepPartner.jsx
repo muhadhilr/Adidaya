@@ -30,12 +30,12 @@ const StepPartner = () => {
   ];
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
+    <div className="md:h-screen flex flex-col justify-center items-center text-center p-4">
       <h1 className="font-bold text-h2">Langkah Pengajuan UMKM</h1>
       <p className="my-2 text-[#5B5B5B]">
         Ikuti langkah berikut untuk memulai pengajuan pendanaan sebagai mitra
       </p>
-      <div className="w-full px-20 my-5 flex">
+      <div className="w-full px-8 my-5 flex flex-col md:flex-row">
         {cardData.map((card, index) => (
           <CardStep key={index} no={card.no} title={card.title}>
             {card.content}

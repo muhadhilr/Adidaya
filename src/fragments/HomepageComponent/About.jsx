@@ -27,14 +27,14 @@ const About = () => {
   ];
 
   return (
-    <div className="h-screen flex justify-center items-center bg-blue">
+    <div className="md:h-screen flex justify-center items-center bg-blue">
       <div className="w-3/4 text-center">
         <div className="mb-5">
           <h1 className="text-sh font-bold">
             Modaleen Sebagai Platform Permodalan UMKM
           </h1>
         </div>
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           {cardData.map((card, index) => (
             <CardAbout key={index} image={card.image} title={card.title}>
               {card.content}
