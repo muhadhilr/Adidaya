@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = ({ children, name="input", placeholder, type, onChange = () => {}, id }) => {
   return (
-    <div className="my-4">
+    <div className="my-3">
       <label htmlFor={id} className="font-semiBold">
         {children}
       </label>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Input from "../elements/Input";
 import Button from "../elements/Button";
-import { Link } from "react-router-dom";
 import Image from "../assets/images/loginImage.png";
 import BackgroundImage from "../assets/images/background/bgOtentikasi.png";
 import withNavbar from "../hoc/withNavbar";
@@ -30,6 +29,7 @@ const RegisterPage = () => {
     }
     console.log(formData);
   };
+  
   return (
     <div
       className="bg-brown-bg flex font-medium justify-center items-center mt-10"
@@ -95,7 +95,7 @@ const RegisterPage = () => {
               </div>
             </div>
           </div>
-          <div className="mb-5 mt-3">
+          <div className="my-5">
             <Button
               type={"submit"}
               className="w-full text-center font-semiBold"
