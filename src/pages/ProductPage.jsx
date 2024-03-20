@@ -37,7 +37,7 @@ const ProductPage = () => {
                 image={item.image}
                 title={item.name}
                 children={item.description}
-                link={`/product/${item.id}`}
+                link={`/detail-produk/${item.id}`}
               />
             ))}
           </div>

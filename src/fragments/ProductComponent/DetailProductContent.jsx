@@ -1,11 +1,11 @@
 import React from "react";
 import CardDetailProduct from "../../elements/CardDetailProduct";
-import BackgroundImage from "../../assets/images/bgDetailProduct-2.png";
+import BackgroundImage from "../../assets/images//background/bgDetailProduct-2.png";
 
 const DetailProductContent = () => {
   return (
     <div
-      className="h-screen flex flex-col justify-center items-center"
+      className="md:h-screen flex flex-col justify-center items-center"
       style={{
         backgroundImage: `url(${BackgroundImage})`,
         backgroundSize: "cover",
@@ -16,7 +16,7 @@ const DetailProductContent = () => {
       <div>
         <h1 className="text-[40px] font-bold mb-5">Data Mitra</h1>
       </div>
-      <div className="flex px-20">
+      <div className="flex flex-col md:flex-row px-20">
         <CardDetailProduct
           header={"2%"}
           description={

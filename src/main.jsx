@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/masuk" element={<LoginPage />} />
         <Route path="/daftar" element={<RegisterPage />} />
         <Route path="/produk" element={<ProductPage />} />
-        <Route path="/detail-produk" element={<DetailProductPage />} />
+        <Route path="/detail-produk/:id" element={<DetailProductPage />} />
         <Route path="/profil-mitra" element={<ProfilMitraPage />} />
         <Route path="/profil-investor" element={<ProfilInvestorPage />} />
         <Route path="/testing" element={<TestingPage />} />
