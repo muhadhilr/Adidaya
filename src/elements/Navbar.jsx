@@ -12,7 +12,7 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full fixed z-50 top-0 left-0 p-0 font-medium md:p-3 bg-[#FCF8F4]">
+    <div className="w-full fixed z-50 top-0 left-0 p-0 font-medium md:p-2 bg-[#FCF8F4]">
       <div className="flex items-center justify-between py-4 md:px-10 px-7">
         <div>
           <Link to="/">

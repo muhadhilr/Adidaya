@@ -1,6 +1,5 @@
 import React from "react";
 import ProductImage from "../assets/images/product-1.png";
-import Arrow from "../assets/icon/rightArrow.png";
 import { Link } from "react-router-dom";
 import { IoMdArrowForward } from "react-icons/io";
 
