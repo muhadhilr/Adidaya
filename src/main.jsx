@@ -11,6 +11,7 @@ import ProfilInvestorPage from "./pages/ProfilInvestorPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import DetailProductPage from "./pages/DetailProductPage.jsx";
+import RolePage from "./pages/RolePage.jsx";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -28,7 +29,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/masuk" element={<LoginPage />} />
+        <Route path="/masuk" element={<RolePage />} />
+        <Route path="/masuk/:role" element={<LoginPage />} />
         <Route path="/daftar" element={<RegisterPage />} />
         <Route path="/produk" element={<ProductPage />} />
         <Route path="/detail-produk/:id" element={<DetailProductPage />} />

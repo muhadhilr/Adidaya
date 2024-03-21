@@ -9,11 +9,12 @@ import Header from "../fragments/HomepageComponent/Header";
 import About from "../fragments/HomepageComponent/About";
 import StepInvestor from "../fragments/HomepageComponent/StepInvestor";
 import Footer from "../elements/Footer";
+import RolePage from "./RolePage";
 
 const TestingPage = () => {
   return (
     <>
-      <Footer />
+      <RolePage />
     </>
   );
 };

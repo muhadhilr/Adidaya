@@ -22,7 +22,7 @@ const HomePage = () => {
       <div className="h-[100vh] md:h-[110vh]">
         <Header />
       </div>
-      <div className="md:h-[110vh] flex items-center">
+      <div id="about" className="md:h-[110vh] flex items-center">
         <About />
       </div>
       <div className="md:h-[110vh] md:pt-24">

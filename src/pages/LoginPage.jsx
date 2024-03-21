@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Input from "../elements/Input";
 import Button from "../elements/Button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Image from "../assets/images/loginImage.png";
 import withNavbar from "../hoc/withNavbar";
 import BackgroundImage from "../assets/images/background/bgOtentikasi.png";
 
 const LoginPage = () => {
+  const { role } = useParams();
+  console.log(role);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -32,7 +35,7 @@ const LoginPage = () => {
 
   return (
     <div
-      className="mt-10 bg-brown-bg flex font-medium"
+      className="mt-10 bg-brown-bg flex font-medium items-center"
       style={{
         backgroundImage: `url(${BackgroundImage})`,
         backgroundSize: "cover",
