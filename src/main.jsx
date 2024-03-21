@@ -12,6 +12,8 @@ import HomePage from "./pages/HomePage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import DetailProductPage from "./pages/DetailProductPage.jsx";
 import RolePage from "./pages/RolePage.jsx";
+import createStore from "react-auth-kit/createStore";
+import AuthProvider from 'react-auth-kit';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -23,22 +25,31 @@ const ScrollToTop = () => {
   return null;
 };
 
+const store = createStore({
+  authName: "_auth",
+  authType: "cookie",
+  cookieDomain: window.location.hostname,
+  cookieSecure: false,
+});
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/masuk" element={<RolePage />} />
-        <Route path="/masuk/:role" element={<LoginPage />} />
-        <Route path="/daftar" element={<RegisterPage />} />
-        <Route path="/produk" element={<ProductPage />} />
-        <Route path="/detail-produk/:id" element={<DetailProductPage />} />
-        <Route path="/profil-mitra" element={<ProfilMitraPage />} />
-        <Route path="/profil-investor" element={<ProfilInvestorPage />} />
-        <Route path="/testing" element={<TestingPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider store={store}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/masuk" element={<RolePage />} />
+          <Route path="/masuk/:role" element={<LoginPage />} />
+          <Route path="/daftar" element={<RegisterPage />} />
+          <Route path="/produk" element={<ProductPage />} />
+          <Route path="/detail-produk/:id" element={<DetailProductPage />} />
+          <Route path="/profil-mitra" element={<ProfilMitraPage />} />
+          <Route path="/profil-investor" element={<ProfilInvestorPage />} />
+          <Route path="/testing" element={<TestingPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );

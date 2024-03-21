@@ -65,7 +65,7 @@ const Product = () => {
                 title={item.name}
                 image={item.image}
                 children={item.description}
-                link={`/product/${item.id}`}
+                link={`/detail-produk/${item.id}`}
               />
             </div>
           ))}
