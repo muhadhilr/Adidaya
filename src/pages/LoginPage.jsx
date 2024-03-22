@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../elements/Input";
 import Button from "../elements/Button";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Image from "../assets/images/loginImage.png";
 import withNavbar from "../hoc/withNavbar";
 import BackgroundImage from "../assets/images/background/bgOtentikasi.png";
@@ -13,6 +13,7 @@ import "toastify-js/src/toastify.css";
 const LoginPage = () => {
   const { role } = useParams();
   const signIn = useSignIn();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -64,6 +65,7 @@ const LoginPage = () => {
           },
           onClick: function () {},
         }).showToast();
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);

@@ -1,6 +1,15 @@
 import React from "react";
 
-const Input = ({ children, name="input", placeholder, type, onChange = () => {}, id, bgColor="transparent" }) => {
+const Input = ({
+  children,
+  name = "input",
+  value,
+  placeholder,
+  type,
+  onChange = () => {},
+  id,
+  bgColor = "transparent",
+}) => {
   return (
     <div className="my-3">
       <label htmlFor={id} className="font-semiBold">
@@ -12,9 +21,10 @@ const Input = ({ children, name="input", placeholder, type, onChange = () => {},
         placeholder={placeholder}
         id={id}
         onChange={onChange}
+        value={value}
         name={name}
         required
-        style={{ backgroundColor: bgColor }} 
+        style={{ backgroundColor: bgColor }}
       />
     </div>
   );

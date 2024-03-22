@@ -1,21 +1,74 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/icon/logoModaleen.png";
 import { IoMenu, IoClose } from "react-icons/io5";
-import { HashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from "react-router-hash-link";
 import { GoChevronUp, GoChevronDown } from "react-icons/go";
+import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
+import useSignOut from "react-auth-kit/hooks/useSignOut";
+import useAuthUser from "react-auth-kit/hooks/useAuthUser";
+import axios from "axios";
+import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 
 const Nav = () => {
+  const isAuthenticated = useIsAuthenticated();
+  const signOut = useSignOut();
+  const auth = useAuthUser();
+  const authHeader = useAuthHeader();
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      axios
+        .get(
+          auth.role === "mitra"
+            ? "https://modaleen-def24eca5066.herokuapp.com/api/validateowner"
+            : "https://modaleen-def24eca5066.herokuapp.com/api/validate",
+          {
+            headers: {
+              Authorization: authHeader,
+            },
+          }
+        )
+        .then((res) => {
+          auth.role === "mitra"
+            ? setData(res.data.message)
+            : setData(res.data.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [isAuthenticated]);
+
   const Links = [
     { name: "Daftar Menjadi Investor", link: "/daftar" },
     { name: "Daftar Menjadi Mitra", link: "/daftar" },
     { name: "Tentang Kami", link: "/#about" },
   ];
-  const Profile = [
-    { name: "Edit Profile", link: "/profil-mitra" },
-    { name: "Edit Profile", link: "/profil-mitra" },
-    { name: "Edit Profile", link: "/profil-mitra" },
-    { name: "Edit Profile", link: "/profil-mitra" },
-  ];
+
+  let Profile = [];
+  if (isAuthenticated) {
+    Profile = [
+      {
+        name: "Edit Profile",
+        link:
+          auth.role === "mitra"
+            ? "/profil-mitra#profil"
+            : "/profil-investor#profil",
+        classname: "",
+      },
+      {
+        name: "Rekap Keuangan",
+        link:
+          auth.role === "mitra"
+            ? "/profil-mitra#keuangan"
+            : "/profil-investor#keuangan",
+        classname: "",
+      },
+      { name: "Logout", link: "/", classname: "text-red", onClick: signOut },
+    ];
+  }
 
   const [open, setOpen] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
@@ -43,13 +96,17 @@ const Nav = () => {
             <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
               <Link
                 to={link.link}
-                className="text-gray-800 hover:text-gray duration-500"
+                className={`hover:text-gray duration-500 ${link.classname}`}
               >
                 {link.name}
               </Link>
             </li>
           ))}
-          <li className="md:ml-8 text-xl md:my-0 my-7">
+          <li
+            className={`md:ml-8 text-xl md:my-0 my-7 ${
+              isAuthenticated ? "hidden" : "block"
+            }`}
+          >
             <Link
               to="/masuk"
               className="px-5 py-3 rounded-3xl cursor-pointer bg-orange text-white hover:bg-[#E4B68D] font-semiBold"
@@ -57,25 +114,33 @@ const Nav = () => {
               Masuk
             </Link>
           </li>
-          <div className="md:ml-8 text-xl md:my-0 my-7 w-fit hidden">
+          <div
+            className={`md:ml-8 text-xl md:my-0 my-7 ${
+              isAuthenticated ? "block" : "hidden"
+            }`}
+          >
             <div
-              className="px-5 py-3 rounded-3xl cursor-pointer bg-orange text-white hover:bg-[#E4B68D] font-semiBold flex items-center"
+              className="px-5 py-3 rounded-3xl cursor-pointer bg-orange text-white hover:bg-[#E4B68D] font-semiBold flex w-fit items-center"
               onClick={() => setOpenProfile(!openProfile)}
             >
-              Selamat datang, Ara &nbsp;
+              Selamat datang, {data.name || ""} &nbsp;
               {openProfile ? <GoChevronUp /> : <GoChevronDown />}
             </div>
             <ul
-              className={`bg-[#EFE8E1] absolute z-[-1] lg:right-12 py-2 transition-all duration-500 ease-in mt-2 w-[200px] rounded-xl ${
+              className={`bg-[#EFE8E1] absolute z-[-1] lg:right-12 py-2 transition-all duration-500 ease-in mt-2 w-[220px] rounded-xl ${
                 openProfile ? "block" : "hidden"
               }`}
             >
               {Profile.map((link) => (
                 <li
                   key={link.name}
-                  className="mx-3 text-xl my-2 p-2 pl-2 bg-[#FCF8F4] rounded-xl"
+                  className={`mx-3 text-xl my-2 p-2 pl-4 bg-[#FCF8F4] rounded-xl ${link.classname}`}
                 >
-                  <Link to={link.link} className="duration-500">
+                  <Link
+                    to={link.link}
+                    onClick={link.onClick}
+                    className="duration-500"
+                  >
                     {link.name}
                   </Link>
                 </li>

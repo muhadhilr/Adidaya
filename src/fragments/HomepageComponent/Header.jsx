@@ -4,8 +4,11 @@ import Button from "../../elements/Button";
 import store from "../../assets/icon/addStore.png";
 import priceTag from "../../assets/icon/priceTag.png";
 import { Link } from "react-router-dom";
+import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
 
 const Header = () => {
+  const isAuthenticated = useIsAuthenticated();
+
   return (
     <div className="h-screen flex flex-col justify-center items-center md:flex-row p-5 md:p-20 pr-5 text-center md:text-left">
       <div className="md:flex-1 md:mr-8">
@@ -16,7 +19,11 @@ const Header = () => {
           Platform Crowdfunding yang menjembatani antara para bisnis lokal atau
           UMKM yang membutuhkan modal dengan para investor
         </p>
-        <div className="flex justify-center md:justify-start flex-col sm:flex-row">
+        <div
+          className={`flex justify-center md:justify-start flex-col sm:flex-row ${
+            isAuthenticated ? "hidden" : "flex"
+          }`}
+        >
           <div className="my-2 sm:mr-4">
             <Link to="/daftar">
               <Button className="px-6 w-full">
