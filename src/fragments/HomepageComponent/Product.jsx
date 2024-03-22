@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import DaftarUMKM from "../../utils/DaftarUMKM.json";
+import axios from "axios";
 
 const Product = () => {
   const settings = {
@@ -47,8 +47,16 @@ const Product = () => {
   const [produk, setProduk] = useState([]);
 
   useEffect(() => {
-    setProduk(DaftarUMKM);
+    axios
+      .get("https://modaleen-def24eca5066.herokuapp.com/api/projects")
+      .then((res) => {
+        setProduk(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
+  console.log(produk);
 
   return (
     <div className="h-screen flex flex-col justify-center items-center text-center md:text-left">
@@ -57,19 +65,21 @@ const Product = () => {
         Berikut merupakan UMKM yang bisa anda investasikan
       </p>
       <div className="w-2/3 my-8">
-        <Slider {...settings}>
-          {produk.map((item, index) => (
-            <div>
+        {Array.isArray(produk.projects) && produk.projects.length > 0 ? (
+          <Slider {...settings}>
+            {produk.projects.map((item, index) => (
               <CardHomeProduct
-                key={item.id}
-                title={item.name}
-                image={item.image}
+                key={item.ID}
+                title={item.project_name}
+                image={item.image_link}
                 children={item.description}
-                link={`/detail-produk/${item.id}`}
+                link={`/detail-produk/${item.ID}`}
               />
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        ) : (
+          <p className="text-center">Tidak ada produk ditemukan</p>
+        )}
       </div>
       <div className="w-2/3 md:w-1/2">
         <Link to="/produk">

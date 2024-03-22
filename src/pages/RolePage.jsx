@@ -22,7 +22,7 @@ const RolePage = () => {
         <div className="mt-5 w-full text-center font-semiBold">
           <Link to={"/masuk/investor"}>
             <div className="border border-[#B9B6B3] p-2 rounded-xl mb-2 cursor-pointer hover:bg-orange hover:text-white">
-              <p>Invsetor</p>
+              <p>Investor</p>
             </div>
           </Link>
           <Link to={"/masuk/mitra"}>

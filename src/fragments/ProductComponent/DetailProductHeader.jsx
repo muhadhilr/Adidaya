@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import Button from "../../elements/Button";
-import Image from "../../assets/images/product-4.png";
 import ChartImage from "../../assets/images/chartImage.png";
 import BackgroundImage from "../../assets/images/background/bgDetailProduct-1.png";
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 import withNavbar from "../../hoc/withNavbar";
 import { IoArrowForward } from "react-icons/io5";
 
-const DetailProductHeader = ({ title, children }) => {
+const DetailProductHeader = ({ title, children, image }) => {
   const slides = [
     {
-      url: Image,
+      url: image,
     },
     {
       url: "https://via.placeholder.com/150",

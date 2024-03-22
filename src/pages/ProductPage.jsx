@@ -46,7 +46,7 @@ const ProductPage = () => {
                   title={item.project_name}
                   children={item.description}
                   link={`/detail-produk/${item.ID}`}
-                  image={Image}
+                  image={item.image_link}
                 />
               ))
             ) : (
