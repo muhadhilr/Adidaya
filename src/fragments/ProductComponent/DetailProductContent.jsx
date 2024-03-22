@@ -2,7 +2,11 @@ import React from "react";
 import CardDetailProduct from "../../elements/CardDetailProduct";
 import BackgroundImage from "../../assets/images//background/bgDetailProduct-2.png";
 
-const DetailProductContent = () => {
+const DetailProductContent = ({ profit = 2, duration = 3, modal = 18000000 }) => {
+  const dotModal = modal.toLocaleString("id-ID", {
+    maximumFractionDigits: 0
+  });
+
   return (
     <div
       className="md:h-screen flex flex-col justify-center items-center"
@@ -18,25 +22,25 @@ const DetailProductContent = () => {
       </div>
       <div className="flex flex-col md:flex-row px-20">
         <CardDetailProduct
-          header={"2%"}
+          header={`${profit}%`}
           description={
-            "Investor akan mendapatkan keuntungan sebesar 2% dari keuntungan UMKM setiap bulan"
+            `Investor akan mendapatkan keuntungan sebesar ${profit}%, dari keuntungan UMKM setiap bulan`
           }
         >
           Sistem Bagi Hasil
         </CardDetailProduct>
         <CardDetailProduct
-          header={"3 Bulan"}
+          header={`${duration} Bulan`}
           description={
-            "Target kebutuhan modal Mie Ayam Cak Qodir harus terpenuhi dalam jangka waktu 3 bulan kedepan"
+            `Target kebutuhan modal Mie Ayam Cak Qodir harus terpenuhi dalam jangka waktu ${duration} bulan kedepan`
           }
         >
           Jangka Waktu
         </CardDetailProduct>
         <CardDetailProduct
-          header={"18.000.000"}
+          header={dotModal}
           description={
-            "Sisa Modal yang diperlukan oleh Mie Ayam Cak Qodir adalah sebesar Rp18.000.000,-"
+            `Sisa Modal yang diperlukan oleh Mie Ayam Cak Qodir adalah sebesar Rp${dotModal},-`
           }
         >
           Sisa Kebutuhan Modal

@@ -42,14 +42,16 @@ const LoginPage = () => {
     axios
       .post(url, formData)
       .then((res) => {
-        console.log(res.data.token);
         signIn({
-          token: res.data.token,
-          expiresIn: 3600,
-          tokenType: "Bearer",
-          authState: {
-            role: role,
-          }});
+          auth: {
+            token: res.data.token,
+            type: "Bearer",
+          },
+          userState: {
+            role: role
+          }
+        })
+        console.log(res.data.token);
         Toastify({
           text: "Login Berhasil",
           duration: 3000,

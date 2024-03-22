@@ -18,10 +18,10 @@ const Header = () => {
         </p>
         <div className="flex justify-center md:justify-start flex-col sm:flex-row">
           <div className="my-2 sm:mr-4">
-            <Link to="/produk">
+            <Link to="/daftar">
               <Button className="px-6 w-full">
                 <img src={store} alt="" className="mr-2" />
-                Modalin UMKM
+                Daftar Menjadi Investor
               </Button>
             </Link>
           </div>

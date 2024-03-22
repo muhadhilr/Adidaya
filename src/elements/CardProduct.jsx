@@ -2,8 +2,9 @@ import React from "react";
 import ProductImage from "../assets/images/product-1.png";
 import { Link } from "react-router-dom";
 import { IoMdArrowForward } from "react-icons/io";
+import NotFound from "../assets/images/imageNotFound.png"
 
-const CardProduct = ({ title, image, children, link }) => {
+const CardProduct = ({ title, image=NotFound, children, link }) => {
   return (
     <div className="flex flex-col border border-[#B9B6B3] md:w-[30%] h-[30rem] rounded-3xl p-7 hover:bg-green hover:text-white m-3 shadow-md">
       <div className="w-full h-52">
