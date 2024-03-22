@@ -5,10 +5,14 @@ import { Link, useParams } from "react-router-dom";
 import Image from "../assets/images/loginImage.png";
 import withNavbar from "../hoc/withNavbar";
 import BackgroundImage from "../assets/images/background/bgOtentikasi.png";
+import useSignIn from "react-auth-kit/hooks/useSignIn";
+import axios from "axios";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const LoginPage = () => {
   const { role } = useParams();
-  console.log(role);
+  const signIn = useSignIn();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -27,6 +31,53 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+
+    let url;
+    if (role === "investor") {
+      url = "https://modaleen-def24eca5066.herokuapp.com/api/login";
+    } else if (role === "mitra") {
+      url = "https://modaleen-def24eca5066.herokuapp.com/api/loginowner";
+    }
+
+    axios
+      .post(url, formData)
+      .then((res) => {
+        console.log(res.data.token);
+        signIn({
+          token: res.data.token,
+          expiresIn: 3600,
+          tokenType: "Bearer",
+          authState: {
+            role: role,
+          }});
+        Toastify({
+          text: "Login Berhasil",
+          duration: 3000,
+          newWindow: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+            background: "#4BB543",
+          },
+          onClick: function () {},
+        }).showToast();
+      })
+      .catch((err) => {
+        console.log(err);
+        Toastify({
+          text: "Akun tidak ditemukan, periksa kembali email dan password",
+          duration: 3000,
+          newWindow: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+            background: "#FF0000",
+          },
+          onClick: function () {},
+        }).showToast();
+      });
   };
 
   const handleRememberMe = () => {

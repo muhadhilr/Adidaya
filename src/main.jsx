@@ -13,7 +13,8 @@ import ProductPage from "./pages/ProductPage.jsx";
 import DetailProductPage from "./pages/DetailProductPage.jsx";
 import RolePage from "./pages/RolePage.jsx";
 import createStore from "react-auth-kit/createStore";
-import AuthProvider from 'react-auth-kit';
+import AuthProvider from "react-auth-kit";
+import AuthOutlet from "@auth-kit/react-router/RequireAuth";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -26,8 +27,8 @@ const ScrollToTop = () => {
 };
 
 const store = createStore({
-  authName: "_auth",
   authType: "cookie",
+  authName: "_auth",
   cookieDomain: window.location.hostname,
   cookieSecure: false,
 });
@@ -44,8 +45,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/daftar" element={<RegisterPage />} />
           <Route path="/produk" element={<ProductPage />} />
           <Route path="/detail-produk/:id" element={<DetailProductPage />} />
-          <Route path="/profil-mitra" element={<ProfilMitraPage />} />
-          <Route path="/profil-investor" element={<ProfilInvestorPage />} />
+          <Route element={<AuthOutlet fallbackPath="/masuk" />}>
+            <Route path="/profil-mitra" element={<ProfilMitraPage />} />
+            <Route path="/profil-investor" element={<ProfilInvestorPage />} />
+          </Route>
           <Route path="/testing" element={<TestingPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

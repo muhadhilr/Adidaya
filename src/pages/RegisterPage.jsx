@@ -4,6 +4,9 @@ import Button from "../elements/Button";
 import Image from "../assets/images/loginImage.png";
 import BackgroundImage from "../assets/images/background/bgOtentikasi.png";
 import withNavbar from "../hoc/withNavbar";
+import axios from "axios";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -23,13 +26,49 @@ const RegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { confirmPassword, ...dataWithoutConfirmPassword } = formData;
+
     if (formData.password !== formData.confirmPassword) {
       alert("Password dan konfirmasi password harus sama.");
       return;
     }
-    console.log(formData);
+
+    axios
+      .post("https://reqres.in/api/register", dataWithoutConfirmPassword)
+      .then((res) => {
+        console.log(res.data);
+        Toastify({
+          text: "Register Berhasil",
+          duration: 3000,
+          newWindow: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+            background: "#4BB543",
+          },
+          onClick: function () {},
+        }).showToast();
+      })
+      .catch((err) => {
+        console.log(err);
+        Toastify({
+          text: "Register Gagal",
+          duration: 3000,
+          newWindow: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+            background: "#FF0000",
+          },
+          onClick: function () {},
+        }).showToast();
+      });
+
+    console.log(dataWithoutConfirmPassword);
   };
-  
+
   return (
     <div
       className="bg-brown-bg flex font-medium justify-center items-center mt-10"
