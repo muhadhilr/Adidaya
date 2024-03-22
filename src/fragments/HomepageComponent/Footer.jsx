@@ -12,7 +12,7 @@ const Footer = () => {
         <img src={headerImage} alt="" />
       </div>
       <div className="md:flex-1">
-        <h1 className="text-h2 md:text-h1 font-bold leading-tight mb-4">
+        <h1 className="text-h2 md:text-h1 font-semiBold leading-tight mb-4">
           Mari, Perluas Dampak Pendanaan dengan Modalin UMKM
         </h1>
         <div className="flex justify-center md:justify-start flex-col sm:flex-row">

@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Bold";
-  src: local("Gilroy-Bold"), url(./fonts/Gilroy-Bold.ttf) format("truetype");
+  src: local("Gilroy-SemiBold"), url(./fonts/Gilroy-SemiBold.ttf) format("truetype");
 }
 
 @font-face {
