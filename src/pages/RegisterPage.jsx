@@ -10,9 +10,9 @@ import "toastify-js/src/toastify.css";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    password: "",
+    Name: "",
+    Email: "",
+    Password: "",
     confirmPassword: "",
   });
 
@@ -28,17 +28,20 @@ const RegisterPage = () => {
     e.preventDefault();
     const { confirmPassword, ...dataWithoutConfirmPassword } = formData;
 
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.Password !== formData.confirmPassword) {
       alert("Password dan konfirmasi password harus sama.");
       return;
     }
 
     axios
-      .post("https://reqres.in/api/register", dataWithoutConfirmPassword)
+      .post(
+        "https://modaleen-def24eca5066.herokuapp.com/api/signup",
+        dataWithoutConfirmPassword
+      )
       .then((res) => {
         console.log(res.data);
         Toastify({
-          text: "Register Berhasil",
+          text: "Register Berhasil, Silahkan Login",
           duration: 3000,
           newWindow: true,
           gravity: "top",
@@ -90,8 +93,8 @@ const RegisterPage = () => {
                 <Input
                   placeholder={"Masukkan Nama Lengkap"}
                   type={"text"}
-                  name="fullName"
-                  value={formData.fullName}
+                  name="Name"
+                  value={formData.Name}
                   onChange={handleChange}
                 >
                   Nama Lengkap
@@ -101,8 +104,8 @@ const RegisterPage = () => {
                 <Input
                   placeholder={"Masukkan Email"}
                   type={"email"}
-                  name="email"
-                  value={formData.email}
+                  name="Email"
+                  value={formData.Email}
                   onChange={handleChange}
                 >
                   Email
@@ -114,8 +117,8 @@ const RegisterPage = () => {
                 <Input
                   placeholder={"Masukkan Password"}
                   type={"password"}
-                  name="password"
-                  value={formData.password}
+                  name="Password"
+                  value={formData.Password}
                   onChange={handleChange}
                 >
                   Password

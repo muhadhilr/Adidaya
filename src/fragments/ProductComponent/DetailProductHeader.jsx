@@ -5,6 +5,7 @@ import BackgroundImage from "../../assets/images/background/bgDetailProduct-1.pn
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 import withNavbar from "../../hoc/withNavbar";
 import { IoArrowForward } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const DetailProductHeader = ({ title, children, image }) => {
   const slides = [
@@ -64,7 +65,9 @@ const DetailProductHeader = ({ title, children, image }) => {
           {children}
         </p>
         <img src={ChartImage} alt="" className="pb-5" />
+        <Link to={"/pembayaran"}>
         <Button className="w-full font-bold">Danai&nbsp;<IoArrowForward /></Button>
+        </Link>
       </div>
     </div>
   );

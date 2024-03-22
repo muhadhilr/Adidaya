@@ -8,6 +8,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import FooterAsset from "../assets/images/Footer.png";
 
 const Footer = () => {
   const socialMediaLinks = [
@@ -35,12 +36,15 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center md:justify-between w-full p-8 bg-[#FCF8F4]">
-      <div>
+      <div className="hidden md:block">
+        <img src={FooterAsset} alt="" />
+      </div>
+      <div className="block md:hidden">
         <Link to="/">
           <img src={Logo} alt="" className="h-8 mb-4 md:mb-0" />
         </Link>
       </div>
-      <div className="flex">
+      <div className="flex md:hidden">
         {socialMediaLinks.map((socialMedia, index) => (
           <div key={index} className="p-2 bg-[#EFE8E1] rounded-xl mx-2">
             <a href={socialMedia.link}>{socialMedia.icon}</a>
